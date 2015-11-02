@@ -10,7 +10,7 @@ public class ReadMail {
         try {
             Session session = Session.getInstance(props, null);
             Store store = session.getStore();
-            store.connect("imap.gmail.com", "dvd.iitkgp@gmail.com", "22437907723");
+            store.connect("imap.gmail.com", "email", "password");
             Folder inbox = store.getFolder("INBOX");
             inbox.open(Folder.READ_ONLY);
             Message msg = inbox.getMessage(inbox.getMessageCount());
