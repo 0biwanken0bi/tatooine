@@ -1,0 +1,24 @@
+#!/usr/bin/python
+
+import sys
+import re
+
+path = sys.argv[1]
+pattern = '^\[SIM-[0-9]*\]'
+
+with open(path) as f:
+  lines = f.read()
+  result = re.match(pattern,lines)
+  if result:
+    exit(0)
+  else:
+    print "###############################"
+    print "Invalid commit message"
+    print "###############################"
+    print ""
+    print "Commit message must begin with JIRA ID in square brackets, e.g"
+    print "[SIM-987] validate signalmeta upon signal creation"
+    print ""
+    print "Please correct your commit message and try again"
+    print ""
+    exit(1)
